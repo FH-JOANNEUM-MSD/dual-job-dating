@@ -53,6 +53,41 @@ Starting from the third semester, dual studies at FH JOANNEUM allow students to 
 
 ### Tech stack
 
+#### ASP.NET Core App
+
+The ASP.NET Core App leverages a modern and robust technology stack designed to support scalable and secure web applications:
+
+- **Framework**: [.NET 8.0](https://dotnet.microsoft.com/en-us/)
+    - The latest iteration of Microsoft's .NET framework, providing advanced features for building high-performance applications.
+
+- **Web API**: [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/)
+    - A framework for building web APIs on .NET, known for its high performance and scalability.
+
+- **Authentication**: [Json Web Token (JWT)](https://jwt.io/)
+    - A compact and self-contained way for securely transmitting information between parties as a JSON object, extensively used in token-based authentication.
+
+- **API Documentation**: [Swagger](https://swagger.io/)
+    - An Interface Description Language for describing RESTful APIs expressed using JSON. Swagger is used to produce interactive API documentation that can be used to test API endpoints.
+
+- **ORM**: [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+    - Microsoft's modern, open-source, and cross-platform Object-Relational Mapping (ORM) framework, enabling .NET developers to work with a database using .NET objects.
+
+- **Database**: [MySQL](https://dev.mysql.com/)
+    - MySQL is a popular open-source relational database management system that integrates smoothly with Entity Framework Core for data access operations.
+
+- **Object Mapping**: [AutoMapper](https://automapper.org/)
+    - A library that simplifies the code for mapping one object to another, enhancing code readability and maintainability.
+
+- **Identity Management**: [AspNetCore.Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity)
+    - Extends Entity Framework Core to support ASP.NET Core Identity, an API that supports user interface (UI) login functionality. This integration facilitates the management of users, passwords, profile data, roles, claims, tokens, and more.
+
+- **Testing Frameworks**:
+    - [Dotnet Test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test): The primary testing SDK for .NET, which enables running tests and collecting test results in .NET projects. Essential for integrating with continuous integration systems.
+
+    - [xUnit](https://xunit.net): An open-source, community-focused unit testing tool for the .NET framework. Known for its extensibility and support for modern testing practices, making it ideal for writing clean and maintainable test codes.
+
+    - [Moq](https://github.com/devlooped/moq): A popular and versatile mocking framework for .NET. Moq is crucial for creating effective mock objects in unit tests, allowing developers to simulate and verify interactions between components without relying on actual implementations.
+
 ### Architecture
 
 #### App Development with Flutter
