@@ -192,6 +192,15 @@ The ASP.NET Core App leverages a modern and robust technology stack designed to 
 
 For detailed API usage and interactive testing, please refer to the [Swagger documentation](https://dual-dating-backend.msd-moss-test.fh-joanneum.at/swagger/index.html).
 
+### CI/CD
+This project utilizes Continuous Integration and Continuous Deployment (CI/CD) to streamline development and deployment processes. CI/CD ensures that code changes are automatically tested, integrated, and deployed, providing rapid feedback and reducing the risk of integration issues. To implement the cicd process, a separate github actions pipeline was created for web-,mobile-,backend-development.
+Feedback on if a workflow run was successful gets automatically sent to a discord group. 
+#### Backend/API
+The CI/CD pipeline for the Dual Job Dating project, defined in a YAML file for GitHub Actions, triggers on push or pull request events to the cicd/notification branch. It includes four main jobs: build, test, build-and-push-docker, and notification jobs for failure and success. The build job checks out the code, sets up .NET Core, restores dependencies, builds the project, and caches NuGet packages. The test job runs the project tests after the build job. The build-and-push-docker job logs into GitHub Container Registry, builds, and pushes the Docker image.  The pipeline requires manual deployment to a Kubernetes cluster and has permissions to read contents and write packages.
+#### Web
+The Dual Job Dating Web CI/CD Pipeline for the Angular project automates building, testing, and deployment to the GitHub Container Registry, triggered by push or pull request events to the main branch, and release creation. The pipeline includes three main jobs: test, build, and deploy. The test job checks out the code, sets up Node.js, installs dependencies, and runs tests. The build job checks out the code, sets up Node.js, installs dependencies, generates the API, builds the application, and saves the build artifact. The deploy job checks out the code, converts the repository name to lowercase, downloads the build artifact, logs into the GitHub Container Registry, and builds and pushes the Docker image. Manual deployment to a Kubernetes cluster is required.
+#### Mobile
+The Dual Job Dating Mobile CI/CD Pipeline for the Flutter project automates building, testing, signing and in the future deployment to the playstore and appstore. The build and test steps are triggered on push or pull request events to the main branch, the deployment step is triggered by realease creation on the main branch. The test job checks out the code, sets up flutter, caches the flutter dependencies, installs dependencies and runs tests. The build job separated for iOS and Android automatically builds and signs the app bundles, currently they get stored as a workflow artifact, with automatic deployment to internal playstore tracks and testflight (defined in the deployment steps) in the works.
 
 ## License
 
