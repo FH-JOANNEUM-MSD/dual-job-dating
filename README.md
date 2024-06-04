@@ -12,19 +12,6 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 
 #### Flutter App
 
-## User
-
-As a normal user the app can be downloaded in the Google Play Store and the Apple App Store.
-
-[Google Play Store](https://play.google.com/store/apps/details?id=at.fhj.dual_job_date_mobile&hl=de_AT)
-[Apple App Store](https://apps.apple.com/at/app/dualdating/id6499212782?l=en-GB)
-
-### Steps for your account
-
-- To receive a password the admin of the FH Joanneum has to create an user
-- The user receives a password per email
-- On the first login the user has to create a new password
-
 ## Developer
 
 1. Clone the [repository](https://github.com/FH-JOANNEUM-MSD/dual-job-date-mobile)
@@ -65,6 +52,19 @@ Starting from the third semester, dual studies at FH JOANNEUM allow students to 
 ### Flutter App
 
 ## User
+
+As a normal user the app can be downloaded in the Google Play Store and the Apple App Store.
+
+[Google Play Store](https://play.google.com/store/apps/details?id=at.fhj.dual_job_date_mobile&hl=de_AT)
+[Apple App Store](https://apps.apple.com/at/app/dualdating/id6499212782?l=en-GB)
+
+### Steps for your account
+
+- To receive a password the admin of the FH Joanneum has to create an user
+- The user receives a password per email
+- On the first login the user has to create a new password
+
+### Usage of the app
 
 - To login to the app the user has to fill out the needed credentials in the login screen
 - At the first login, the user has to create a new, safe password
@@ -114,7 +114,9 @@ The main branch is the branch that will be pushed to the productiv system (App S
 
 The development branch is used as a main branch for the developers. Everytime a developer wants to make new feature or work on a bug, the developer creates a new branch from the current developer branch and when the workload is finished the pull request will be created for the developer branch and tested on the developer branch. Afterwards the developer branch will be merged into the main branch, so it will be assured, that the main branch always has a working product ready for release.
 
-### BLoC
+### Tech stack
+
+#### BLoC
 
 [Link to the library](https://bloclibrary.dev/)
 
@@ -131,203 +133,7 @@ BLoC was created so the developer
 
 In all places, where a connection to the Rest API is required, BLoC is used.
 
-### How to work with BLoC example with the login
-
-This section demonstrates the implementation of the BLoC pattern for managing the login functionality of a Flutter application.
-
-The login functionality is divided into the following components:
-
-1. Authentication BLoC: Handles the business logic and state management.
-2. Authentication Events: Defines the events that can trigger state changes in the bloc.
-3. Authentication States: Represents the different states the application can be in.
-4. Login Service: Manages the actual authentication logic and communication with the backend.
-5. Login Screen Implementation: Represents how the screen is made in flutter.
-
-#### Authentication BLoC
-
-The ```AuthenticationBloc``` listens for ```AuthenticationEvent``` and emits different ```AuthenticationState``` based on the login process.
-
-
-```
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc() : super(AuthenticationStateInitial()) {
-    on<LoginEvent>((event, emit) async {
-      emit(AuthenticationStateChanged(AuthenticationStatus.PENDING));
-      var loginResponse = await LoginService.login(event.email, event.password);
-      if (loginResponse.statusCode == 200) {
-        if (loginResponse.isNew) {
-          emit(AuthenticationStateChanged(AuthenticationStatus.FIRSTLOGIN));
-        } else {
-          emit(AuthenticationStateChanged(AuthenticationStatus.AUTHENTICATED));
-        }
-      } else {
-        emit(AuthenticationStateChanged(AuthenticationStatus.UNAUTHENTICATED));
-      }
-    });
-
-    on<RefreshBearerEvent>((event, emit) async {
-      var isAuthenticated = await LoginService.isAuthenticated();
-      emit(isAuthenticated ? AuthenticationStatus.AUTHENTICATED : AuthenticationStatus.UNAUTHENTICATED);
-    });
-
-    on<LogoutEvent>((event, emit) async {
-      await LoginService.flushStorage();
-      emit(AuthenticationStatus.UNAUTHENTICATED);
-    });
-  }
-}
-``` 
-
-#### Authentication Events
-
-The ```AuthenticationEvent``` class defines the events for the authentication process.
-
-```
-abstract class AuthenticationEvent {}
-
-class LoginEvent extends AuthenticationEvent {
-  final String email;
-  final String password;
-  LoginEvent(this.email, this.password);
-}
-
-class RefreshBearerEvent extends AuthenticationEvent {}
-
-class LogoutEvent extends AuthenticationEvent {}
-```
-
-#### Authentication States
-
-The ```AuthenticationState``` class represents the different states of the authentication process.
-
-```
-enum AuthenticationStatus {
-  UNKNOWN,
-  PENDING,
-  FIRSTLOGIN,
-  AUTHENTICATED,
-  UNAUTHENTICATED
-}
-
-abstract class AuthenticationState {
-  late AuthenticationStatus status;
-}
-
-class AuthenticationStateInitial extends AuthenticationState {
-  @override
-  AuthenticationStatus get status => AuthenticationStatus.UNKNOWN;
-}
-
-class AuthenticationStateChanged extends AuthenticationState {
-  final AuthenticationStatus status;
-  AuthenticationStateChanged(this.status);
-}
-```
-
-#### Login Service
-
-The ```LoginService``` manages the login process and token management.
-
-```
-class LoginService {
-  static Future<LoginResponse> login(String email, String password) async {
-    var body = {'email': email, 'password': password};
-    final response = await HTTPHelper.post('User/Login', body);
-    if (response.statusCode == 200) {
-      return LoginResponse.fromJson(jsonDecode(response.body));
-    } else {
-      return LoginResponse.error(response.statusCode);
-    }
-  }
-
-  static Future<bool> isAuthenticated() async {
-    // Implementation for checking authentication status
-  }
-
-  static Future<void> flushStorage() async {
-    await const FlutterSecureStorage().deleteAll();
-  }
-}
-```
-
-#### Login Screen Implementation
-
-The ```Login``` screen utilizes the ```AuthenticationBloc``` to handle user login actions and state changes.
-
-```
-class Login extends StatefulWidget {
-  @override
-  _LoginState createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) => AuthenticationBloc(),
-        child: BlocListener<AuthenticationBloc, AuthenticationState>(
-          listener: (context, state) {
-            if (state.status == AuthenticationStatus.FIRSTLOGIN) {
-              Navigator.pushNamed(context, '/set_new_password');
-            } else if (state.status == AuthenticationStatus.AUTHENTICATED) {
-              Navigator.pushReplacementNamed(context, '/home');
-            } else if (state.status == AuthenticationStatus.UNAUTHENTICATED) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Invalid credentials')),
-              );
-            }
-          },
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(labelText: 'Email'),
-                ),
-                TextFormField(
-                  controller: _passwordController,
-                  decoration: InputDecoration(labelText: 'Password'),
-                  obscureText: true,
-                ),
-                BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                  builder: (context, state) {
-                    return state.status == AuthenticationStatus.PENDING
-                        ? CircularProgressIndicator()
-                        : ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                BlocProvider.of<AuthenticationBloc>(context).add(
-                                  LoginEvent(_emailController.text, _passwordController.text),
-                                );
-                              }
-                            },
-                            child: Text('Login'),
-                          );
-                  },
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/forgot_password');
-                  },
-                  child: Text('Forgot Password?'),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-```
-
-### Tech stack
+For more details read [here](https://github.com/FH-JOANNEUM-MSD/dual-job-date-mobile/blob/development/README.md).
 
 #### ASP.NET Core App
 
