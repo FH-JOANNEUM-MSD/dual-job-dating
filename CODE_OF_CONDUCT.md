@@ -23,11 +23,11 @@ Set up your development environment by following the instructions in the `README
 
 ## How to Report a Bug
 
-If you encounter a bug, please report it to **tbd** Please provide detailed information, including steps to reproduce, expected behavior, and actual results.
+If you encounter a bug, please report it as an issue to the repository and fill out the template and add the "bug" label. Please provide detailed information, including steps to reproduce, expected behavior, and actual results.
 
 ## How to Request an Enhancement
 
-If you have an idea for a new feature or an enhancement, please submit it as an issue with the "enhancement" label. Describe the feature in detail and any benefits it brings to the project.
+If you have an idea for a new feature or an enhancement, please submit it as an issue with the template feature request and add the "enhancement" label. Describe the feature in detail and any benefits it brings to the project.
 
 ## Who is Involved?
 
