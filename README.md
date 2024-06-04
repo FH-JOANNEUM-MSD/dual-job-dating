@@ -18,8 +18,6 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 
 3. Install the required dependencies
 
-...
-
 4. Run the application
 
 #### Angular App
@@ -101,6 +99,20 @@ The ASP.NET Core App leverages a modern and robust technology stack designed to 
 - Services Layer: Contains logic for external interactions like API calls. Aimed at decoupling the application core from external dependencies​
 
 - Additional Classes: Enhances code with static helpers for UI consistency and validation
+
+#### Screenshots
+
+<img src="/Assets/AppScreenshots/Login.png" width="250" height="500">
+
+<img src="/Assets/AppScreenshots/ResetPassword.png" width="250" height="500">
+
+<img src="/Assets/AppScreenshots/FirstLogin.png" width="250" height="500">
+
+<img src="/Assets/AppScreenshots/Companies.png" width="250" height="500">
+
+<img src="/Assets/AppScreenshots/MoreScreen.png" width="250" height="500">
+
+<img src="/Assets/AppScreenshots/MoreScreen2.png" width="250" height="500">
 
 #### Web Development with Angular
 
