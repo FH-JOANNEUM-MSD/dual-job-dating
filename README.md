@@ -1,5 +1,26 @@
 # dual-job-dating
 
+## Table of Contents
+
+- [Description & Contributors](#description--contributors)
+- [Installation](#installation)
+  - [Flutter App](#flutter-app)
+  - [Angular App](#angular-app)
+  - [ASP.NET Core App](#aspnet-core-app)
+- [Usage](#usage)
+  - [Angular App Instructions](#angular-app-instructions)
+    - [Admin](#admin)
+    - [Company](#company)
+  - [Flutter App](#flutter-app)
+    - [Student](#student)
+- [Screenshots](#screenshots)
+- [Technical Details](#technical-details)
+- [Database Schema](#database-schema)
+- [API Documentation](#api-documentation)
+- [CI/CD](#cicd)
+- [License](#license)
+- [Contact](#contact)
+
 ## Description & Contributors
 
 This is an open source project for creating a platform for dual job dating. The project is developed by students of Mobile Software Development (MSD21) at the University of Applied Studies in Kapfenberg, Austria. The project was supervised by FH-Prof. DI Dr. Elmar Krainz, DI (FH) Michael Ulm, MA, and DI (FH) Andreas Öffl, MSc.
@@ -12,8 +33,6 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 
 #### Flutter App
 
-## Developer
-
 1. Clone the [repository](https://github.com/FH-JOANNEUM-MSD/dual-job-date-mobile)
 
 2. Navigate to the `dual-job-date-mobile` directory
@@ -21,8 +40,6 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 3. Install Flutter [Flutter](https://docs.flutter.dev/get-started/install)
 
 4. Run the application with an emulator or your physical device as an emulator
-
-## Usage
 
 #### Angular App
 
@@ -55,13 +72,17 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 
 For more details read Readme.md in the respective repositories.
 
+For style guidelines, prototyping, and design details, please refer to the following document:
+
+[UI/UX Design on Figma](https://www.figma.com/design/HvKCRzlJDUp7VPEmllLSXy/UI%2FUX?node-id=1-3)
+
 ## Usage
 
 Starting from the third semester, dual studies at FH JOANNEUM allow students to alternate between academic instruction and part-time employment at various companies, providing practical, industry-specific experience. The "Dual Job Dating" app is designed to facilitate job matchmaking between students and patner companies. It allows students to browse company profiles, express their preferences through likes or dislikes, and receive appointment schedules based on their choices for the job dating event. Additionally, the app includes a web-based component for administrative management of the entire process by both the educational institution and the participating companies.
 
 ### Instructions for use
 
-### Angular App
+### Angular App Instructions
 
 The Angular web app is for administrators and companies only: [Dual Job Dating Web](https://dual-job-dating.msd-moss-prod.fh-joanneum.at/)
 
@@ -123,18 +144,6 @@ As a student the app can be downloaded in the Google Play Store and the Apple Ap
 - On the more screen, the user can lookup the imprint and the data protection of the FH Joanneum and change the first and last name if needed
 
 For assistance, contact the app admin.
-
-## Developer
-
-To start coding in the Flutter App, first of all download and install Flutter from the official Website.
-
-[Link to Flutter](https://docs.flutter.dev/get-started/install)
-
-As an IDE there are 3 popular options:
-
-- Visual Studio Code with the Flutter extension
-- Android Studio with the Flutter plugin for IntelliJ
-- IntelliJ IDEA with the Flutter plugin for IntelliJ
 
 ### Screenshots
 
@@ -364,5 +373,7 @@ The Dual Job Dating Mobile CI/CD Pipeline for the Flutter project automates buil
 For any questions or feedback, please contact us at:
 
 https://www.fh-joanneum.at/msd
+
 Email: msd@fh-joanneum.at
+
 Tel: +43 316 5453 - 6332
