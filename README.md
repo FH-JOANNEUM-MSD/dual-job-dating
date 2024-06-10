@@ -26,9 +26,19 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 
 #### Angular App
 
-1. Clone the repository
+1. Clone the [repository](https://github.com/FH-JOANNEUM-MSD/dual-job-date-web.git)
 
-...
+2. Make sure you have Node.js and Angular installed
+
+3. Navigate to `dual-job-date-web` directory and install the required npm modules:
+   ```
+    npm install
+   ```
+4. Run the application in developer mode:
+   ```
+    ng serve
+   ```
+5. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
 #### ASP.NET Core App
 
@@ -36,12 +46,14 @@ The project is divided into three parts.. The frontend consists of a Flutter app
 2. Make sure you have [Docker](https://docker.com) installed
 3. Navigate to the `DualJobDateAPI` directory
 4. Create the docker container (database and API)
-    ```
-    docker-compose -f docker-compose-dev.yml up -d
-    ````
+   ```
+   docker-compose -f docker-compose-dev.yml up -d
+   ```
    The application will be started within a docker container in developer mode on [localhost:8000](http://localhost:8000) using another docker container as database on [localhost:3306](http://localhost:3306)
 5. Alternatively, run the application in developer mode in an IDE with [.NET8](https://learn.microsoft.com/en-gb/dotnet/core/install/) and [EF-Core tools](https://learn.microsoft.com/en-gb/ef/core/cli/dotnet) installed (Docker still needed for the database and database must be migrated manually).
 6. Open [Swagger](http://localhost:8000/swagger/index.html)
+
+For more details read Readme.md in the respective repositories.
 
 ## Usage
 
@@ -74,6 +86,7 @@ As a normal user the app can be downloaded in the Google Play Store and the Appl
 - On the more screen, the user can lookup the imprint and the data protection of the FH Joanneum and change the first and last name if needed
 
 ## Developer
+
 To start coding in the Flutter App, first of all download and install Flutter from the official Website.
 
 [Link to Flutter](https://docs.flutter.dev/get-started/install)
@@ -104,16 +117,6 @@ The following screenshots are from the Flutter app and how it looks like on a mo
 
 ## Technical Details
 
-### Branches
-
-#### main
-
-The main branch is the branch that will be pushed to the productiv system (App Store and Google Play Store).
-
-#### development
-
-The development branch is used as a main branch for the developers. Everytime a developer wants to make new feature or work on a bug, the developer creates a new branch from the current developer branch and when the workload is finished the pull request will be created for the developer branch and tested on the developer branch. Afterwards the developer branch will be merged into the main branch, so it will be assured, that the main branch always has a working product ready for release.
-
 ### Tech stack
 
 #### BLoC
@@ -140,35 +143,44 @@ For more details read [here](https://github.com/FH-JOANNEUM-MSD/dual-job-date-mo
 The ASP.NET Core App leverages a modern and robust technology stack designed to support scalable and secure web applications:
 
 - **Framework**: [.NET 8.0](https://dotnet.microsoft.com/en-us/)
-    - The latest iteration of Microsoft's .NET framework, providing advanced features for building high-performance applications.
+
+  - The latest iteration of Microsoft's .NET framework, providing advanced features for building high-performance applications.
 
 - **Web API**: [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/)
-    - A framework for building web APIs on .NET, known for its high performance and scalability.
+
+  - A framework for building web APIs on .NET, known for its high performance and scalability.
 
 - **Authentication**: [Json Web Token (JWT)](https://jwt.io/)
-    - A compact and self-contained way for securely transmitting information between parties as a JSON object, extensively used in token-based authentication.
+
+  - A compact and self-contained way for securely transmitting information between parties as a JSON object, extensively used in token-based authentication.
 
 - **API Documentation**: [Swagger](https://swagger.io/)
-    - An Interface Description Language for describing RESTful APIs expressed using JSON. Swagger is used to produce interactive API documentation that can be used to test API endpoints.
+
+  - An Interface Description Language for describing RESTful APIs expressed using JSON. Swagger is used to produce interactive API documentation that can be used to test API endpoints.
 
 - **ORM**: [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
-    - Microsoft's modern, open-source, and cross-platform Object-Relational Mapping (ORM) framework, enabling .NET developers to work with a database using .NET objects.
+
+  - Microsoft's modern, open-source, and cross-platform Object-Relational Mapping (ORM) framework, enabling .NET developers to work with a database using .NET objects.
 
 - **Database**: [MySQL](https://dev.mysql.com/)
-    - MySQL is a popular open-source relational database management system that integrates smoothly with Entity Framework Core for data access operations.
+
+  - MySQL is a popular open-source relational database management system that integrates smoothly with Entity Framework Core for data access operations.
 
 - **Object Mapping**: [AutoMapper](https://automapper.org/)
-    - A library that simplifies the code for mapping one object to another, enhancing code readability and maintainability.
+
+  - A library that simplifies the code for mapping one object to another, enhancing code readability and maintainability.
 
 - **Identity Management**: [AspNetCore.Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity)
-    - Extends Entity Framework Core to support ASP.NET Core Identity, an API that supports user interface (UI) login functionality. This integration facilitates the management of users, passwords, profile data, roles, claims, tokens, and more.
+
+  - Extends Entity Framework Core to support ASP.NET Core Identity, an API that supports user interface (UI) login functionality. This integration facilitates the management of users, passwords, profile data, roles, claims, tokens, and more.
 
 - **Testing Frameworks**:
-    - [Dotnet Test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test): The primary testing SDK for .NET, which enables running tests and collecting test results in .NET projects. Essential for integrating with continuous integration systems.
 
-    - [xUnit](https://xunit.net): An open-source, community-focused unit testing tool for the .NET framework. Known for its extensibility and support for modern testing practices, making it ideal for writing clean and maintainable test codes.
+  - [Dotnet Test](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test): The primary testing SDK for .NET, which enables running tests and collecting test results in .NET projects. Essential for integrating with continuous integration systems.
 
-    - [Moq](https://github.com/devlooped/moq): A popular and versatile mocking framework for .NET. Moq is crucial for creating effective mock objects in unit tests, allowing developers to simulate and verify interactions between components without relying on actual implementations.
+  - [xUnit](https://xunit.net): An open-source, community-focused unit testing tool for the .NET framework. Known for its extensibility and support for modern testing practices, making it ideal for writing clean and maintainable test codes.
+
+  - [Moq](https://github.com/devlooped/moq): A popular and versatile mocking framework for .NET. Moq is crucial for creating effective mock objects in unit tests, allowing developers to simulate and verify interactions between components without relying on actual implementations.
 
 ### Architecture
 
@@ -233,31 +245,34 @@ The ASP.NET Core App leverages a modern and robust technology stack designed to 
 #### Endpoint Groups
 
 1. **Company Endpoints**
+
    - **Purpose**: Manage company profiles, update details, retrieve active companies, and manage company-specific information.
    - **Examples**:
-      - Retrieve company details
-      - Update company information
-      - Manage active status of companies
-      - Register new companies
+     - Retrieve company details
+     - Update company information
+     - Manage active status of companies
+     - Register new companies
 
 2. **User Endpoints**
+
    - **Purpose**: Handle user registration, authentication, password management, and retrieve specific user data.
    - **Examples**:
-      - User registration and authentication
-      - Refresh authentication tokens
-      - Manage passwords (change and reset)
+     - User registration and authentication
+     - Refresh authentication tokens
+     - Manage passwords (change and reset)
 
 3. **StudentCompany Endpoints**
+
    - **Purpose**: Manage interactions between students and companies, like adding or removing likes/dislikes.
    - **Examples**:
-      - Add or remove likes/dislikes
-      - Retrieve likes/dislikes based on student or company
+     - Add or remove likes/dislikes
+     - Retrieve likes/dislikes based on student or company
 
 4. **Util Endpoints**
    - **Purpose**: Provide utilities for managing and retrieving data about institutions and academic programs.
    - **Examples**:
-      - Retrieve institutions and academic programs
-      - Add or update academic programs
+     - Retrieve institutions and academic programs
+     - Add or update academic programs
 
 #### Authorization and Security
 
@@ -275,13 +290,20 @@ The ASP.NET Core App leverages a modern and robust technology stack designed to 
 For detailed API usage and interactive testing, please refer to the [Swagger documentation](https://dual-dating-backend.msd-moss-test.fh-joanneum.at/swagger/index.html).
 
 ### CI/CD
+
 This project utilizes Continuous Integration and Continuous Deployment (CI/CD) to streamline development and deployment processes. CI/CD ensures that code changes are automatically tested, integrated, and deployed, providing rapid feedback and reducing the risk of integration issues. To implement the cicd process, a separate github actions pipeline was created for web-,mobile-,backend-development.
-Feedback on if a workflow run was successful gets automatically sent to a discord group. 
+Feedback on if a workflow run was successful gets automatically sent to a discord group.
+
 #### Backend/API
-The CI/CD pipeline for the Dual Job Dating project, defined in a YAML file for GitHub Actions, triggers on push or pull request events to the cicd/notification branch. It includes four main jobs: build, test, build-and-push-docker, and notification jobs for failure and success. The build job checks out the code, sets up .NET Core, restores dependencies, builds the project, and caches NuGet packages. The test job runs the project tests after the build job. The build-and-push-docker job logs into GitHub Container Registry, builds, and pushes the Docker image.  The pipeline requires manual deployment to a Kubernetes cluster and has permissions to read contents and write packages.
+
+The CI/CD pipeline for the Dual Job Dating project, defined in a YAML file for GitHub Actions, triggers on push or pull request events to the cicd/notification branch. It includes four main jobs: build, test, build-and-push-docker, and notification jobs for failure and success. The build job checks out the code, sets up .NET Core, restores dependencies, builds the project, and caches NuGet packages. The test job runs the project tests after the build job. The build-and-push-docker job logs into GitHub Container Registry, builds, and pushes the Docker image. The pipeline requires manual deployment to a Kubernetes cluster and has permissions to read contents and write packages.
+
 #### Web
+
 The Dual Job Dating Web CI/CD Pipeline for the Angular project automates building, testing, and deployment to the GitHub Container Registry, triggered by push or pull request events to the main branch, and release creation. The pipeline includes three main jobs: test, build, and deploy. The test job checks out the code, sets up Node.js, installs dependencies, and runs tests. The build job checks out the code, sets up Node.js, installs dependencies, generates the API, builds the application, and saves the build artifact. The deploy job checks out the code, converts the repository name to lowercase, downloads the build artifact, logs into the GitHub Container Registry, and builds and pushes the Docker image. Manual deployment to a Kubernetes cluster is required.
+
 #### Mobile
+
 The Dual Job Dating Mobile CI/CD Pipeline for the Flutter project automates building, testing, signing and in the future deployment to the playstore and appstore. The build and test steps are triggered on push or pull request events to the main branch, the deployment step is triggered by realease creation on the main branch. The test job checks out the code, sets up flutter, caches the flutter dependencies, installs dependencies and runs tests. The build job separated for iOS and Android automatically builds and signs the app bundles, currently they get stored as a workflow artifact, with automatic deployment to internal playstore tracks and testflight (defined in the deployment steps) in the works.
 
 ## License

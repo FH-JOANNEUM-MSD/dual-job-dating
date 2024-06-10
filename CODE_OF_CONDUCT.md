@@ -2,10 +2,6 @@
 
 Welcome to the Dual-Job-Dating project! We are thrilled to have you here and look forward to your contributions. This document will guide you through the process of contributing to this project.
 
-## Important Resources
-
-tbd
-
 ## Testing
 
 Before submitting changes, please ensure you run tests to verify your contributions. The test scripts are located in the `tbd` directory of our repository.
@@ -13,6 +9,16 @@ Before submitting changes, please ensure you run tests to verify your contributi
 ## Environment Details
 
 Set up your development environment by following the instructions in the `README.md` file. This includes setting up the Flutter, Angular, and ASP.NET Core environments.
+
+## Branches
+
+### main
+
+The main branch is the branch that will be pushed to the productiv system (App Store and Google Play Store).
+
+### development
+
+The development branch is used as a main branch for the developers. Everytime a developer wants to make new feature or work on a bug, the developer creates a new branch from the current developer branch and when the workload is finished the pull request will be created for the developer branch and tested on the developer branch. Afterwards the developer branch will be merged into the main branch, so it will be assured, that the main branch always has a working product ready for release.
 
 ## How to Submit Changes
 
