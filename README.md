@@ -146,7 +146,7 @@ Web app screenshots are shown below:
 
 <img src="/Assets/AppScreenshots/company_profile.png" width="500" height="500">
 
-<img src="/Assets/AppScreenshots/newCompany" width="250" height="250">
+<img src="/Assets/AppScreenshots/newCompany.png" width="250" height="250">
 
 The following screenshots are from the Flutter app and how it looks like on a mobile phone
 
