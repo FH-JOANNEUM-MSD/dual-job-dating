@@ -61,22 +61,59 @@ Starting from the third semester, dual studies at FH JOANNEUM allow students to 
 
 ### Instructions for use
 
+### Angular App
+
+The Angular web app is for administrators and companies only: [Dual Job Dating Web](https://dual-job-dating.msd-moss-prod.fh-joanneum.at/)
+
+#### Admin
+
+**Account Setup**
+
+- Admin accounts are created by FH Joanneum.
+
+**Usage**
+
+- **Login:** Enter your credentials.
+- **Start Page:** Generate appointments by selecting dates and programs.
+- **Company Page:** View, search, filter, and edit company details. Add companies via form or Excel import.
+- **Student Page:** Manage student accounts similarly.
+- **Profile:** Edit company profiles and view appointments.
+- **Account Management:** Change your password or log out.
+
+#### Company
+
+**Account Setup**
+
+- Company accounts are created by FH Joanneum.
+- Receive your password via email.
+- Create a new password on the first login.
+
+**Usage**
+
+- **Login:** Enter your credentials.
+- **Edit Details:** Update company info and set status to inactive if not participating.
+- **Appointments:** View your appointment list.
+- **Account Management:** Change your password or log out.
+
+For assistance, contact the app admin.
+
 ### Flutter App
 
-## User
+#### Student
 
-As a normal user the app can be downloaded in the Google Play Store and the Apple App Store.
+As a student the app can be downloaded in the Google Play Store and the Apple App Store.
 
 [Google Play Store](https://play.google.com/store/apps/details?id=at.fhj.dual_job_date_mobile&hl=de_AT)
+
 [Apple App Store](https://apps.apple.com/at/app/dualdating/id6499212782?l=en-GB)
 
-### Steps for your account
+#### Steps for your account
 
 - To receive a password the admin of the FH Joanneum has to create an user
 - The user receives a password per email
 - On the first login the user has to create a new password
 
-### Usage of the app
+#### Usage of the app
 
 - To login to the app the user has to fill out the needed credentials in the login screen
 - At the first login, the user has to create a new, safe password
@@ -84,6 +121,8 @@ As a normal user the app can be downloaded in the Google Play Store and the Appl
 - On the main screen the user can like or dislike companies that are listed for the job dating
 - On the appointment screen, the user can choose an appointment for the liked companies
 - On the more screen, the user can lookup the imprint and the data protection of the FH Joanneum and change the first and last name if needed
+
+For assistance, contact the app admin.
 
 ## Developer
 
@@ -98,6 +137,16 @@ As an IDE there are 3 popular options:
 - IntelliJ IDEA with the Flutter plugin for IntelliJ
 
 ### Screenshots
+
+Web app screenshots are shown below:
+
+<img src="/Assets/AppScreenshots/startseite_web.png" width="500" height="250">
+
+<img src="/Assets/AppScreenshots/companies_web.png" width="500" height="200">
+
+<img src="/Assets/AppScreenshots/company_profile.png" width="500" height="500">
+
+<img src="/Assets/AppScreenshots/newCompany" width="250" height="250">
 
 The following screenshots are from the Flutter app and how it looks like on a mobile phone
 
