@@ -138,7 +138,6 @@ As a student the app can be downloaded in the Google Play Store and the Apple Ap
 
 - To login to the app the user has to fill out the needed credentials in the login screen
 - At the first login, the user has to create a new, safe password
-- If the password gets lost, the user can click on reset password, fill out the email and get a link to reset the password
 - On the main screen the user can like or dislike companies that are listed for the job dating
 - On the appointment screen, the user can choose an appointment for the liked companies
 - On the more screen, the user can lookup the imprint and the data protection of the FH Joanneum and change the first and last name if needed
